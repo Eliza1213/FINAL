@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
 });
 
 // Importar las rutas
-const TerrarioRoutes = require("./routes/TerrarioRoutes");
+const TerrarioRoutes = require("./Routes/TerrarioRoutes");
 
 // Inicializar la aplicación Express
 const app = express();
@@ -54,7 +54,7 @@ app.use("/api/terminos", require("./routes/TerminoRoutes"));
 app.use("/api/politicas", require("./routes/PoliticaRoutes"));
 app.use("/api/preguntas", require("./routes/PreguntaRoutes"));
 app.use("/api/contactos", require("./routes/ContactoRoutes"));
-app.use("/api/informaciones", require("./Routes/InformacionRoutes"));
+app.use("/api/informaciones", require("./routes/InformacionRoutes"));
 app.use("/api/terrario", TerrarioRoutes); // Ahora está correctamente importado
 app.use("/api/productos", require("./routes/ProductoRoutes"));
 
