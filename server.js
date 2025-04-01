@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
 });
 
 // Importar las rutas
-const TerrarioRoutes = require("./Routes/TerrarioRoutes");
+const TerrarioRoutes = require("./routes/TerrarioRoutes");
 
 // Inicializar la aplicación Express
 const app = express();
@@ -42,14 +42,18 @@ app.use("/api/usuarios", (req, res, next) => {
 
 // Conectar a la base de datos
 conectarDB();
+// Ruta raíz básica para evitar errores 404
+app.get("/", (req, res) => {
+  res.send("Bienvenido a mi servidor!");
+});
 
 // Rutas API existentes
 app.use("/api/misiones", require("./routes/MisionRoutes"));
-app.use("/api/visiones", require("./Routes/VisionRoutes"));
-app.use("/api/terminos", require("./Routes/TerminoRoutes"));
-app.use("/api/politicas", require("./Routes/PoliticaRoutes"));
-app.use("/api/preguntas", require("./Routes/PreguntaRoutes"));
-app.use("/api/contactos", require("./Routes/ContactoRoutes"));
+app.use("/api/visiones", require("./routes/VisionRoutes"));
+app.use("/api/terminos", require("./routes/TerminoRoutes"));
+app.use("/api/politicas", require("./routes/PoliticaRoutes"));
+app.use("/api/preguntas", require("./routes/PreguntaRoutes"));
+app.use("/api/contactos", require("./routes/ContactoRoutes"));
 app.use("/api/informaciones", require("./Routes/InformacionRoutes"));
 app.use("/api/terrario", TerrarioRoutes); // Ahora está correctamente importado
 app.use("/api/productos", require("./routes/ProductoRoutes"));
