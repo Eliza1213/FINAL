@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
 });
 
 // Importar las rutas
-const TerrarioRoutes = require("./Routes/TerrarioRoutes");
+const TerrarioRoutes = require("./routes/TerrarioRoutes");
 
 // Inicializar la aplicación Express
 const app = express();
